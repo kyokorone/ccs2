@@ -19,7 +19,7 @@ int main()
 	dice3 = rand() % 6 + 1;
 	dice4 = rand() % 6 + 1;
 	
-	printf("Dice Rolling Game! Ready? (Press Y) ");
+	printf("Dice Rolling Game! Ready? (Y/N) ");
 	scanf("%c", &ready);
 	
 	
@@ -42,7 +42,9 @@ int main()
     else if (ready == 'N' || ready == 'n')
     	{
     		printf("\nSee you next time!");
-    		system("cls");
+			getch();
+			printf("\n\nPress any key to leave :( ");
+    		exit(1);
 		}
 
 	if (dice1+dice2 > dice3+dice4)
@@ -131,12 +133,6 @@ int main()
 			getch();
 			printf("\n\nScore:");
 			printf("\nComputer: %d\nUser: %d", scoreC, scoreU);
-		}
-		
-	else if (ready == 'N' || ready == 'n')
-    	{
-    		printf("\nSee you next time!");
-    		system("cls");
 		}
 		
 	getch();
