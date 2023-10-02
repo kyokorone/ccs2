@@ -1,39 +1,26 @@
 #include<stdio.h>
+#include<stdlib.h>
 /*
 Write a program that will ask for an integer input (1 - 9999). Your program will convert the inputted integer into its 
 corresponding word format in English. See examples below:
-
 Example 1:
-
 Input number: 2481
-
 Output: two thousand four hundred eighty one
-
 Example 2:
-
 Input number: 616
-
 Output: six hundred sixteen
-
 Example 3:
-
 Input number: 30
-
 Output: thirty
-
 - Make sure to trap your input. Any integer input below 1 or above 9999 is an invalid input. In case of an invalid input,
  the program will display an error message and will exit the program.
-
 -Submit your .C file.
-
 - Find a way to be able to extract each digit according to its place value.
-
 - VERY IMPORTANT: THE SOLUTION DOES NOT USE 9999 IF-STATEMENTS!
-
 - Be careful on the numbers from 10 - 19.
 */
 
-main()
+main()       
 {
 	int num, ones, tens, hundreds, thousandths;
 	
@@ -45,6 +32,11 @@ main()
 	tens = ((num % 1000) % 100) / 10;
 	ones = ((num % 1000) % 100) % 10;
 	
+	if (num <= 0 || num > 9999){
+		printf("Your input is invalid.");
+    		exit(1);
+		}
+
 	if (thousandths != 0){
 		if (thousandths == 1) printf("one thousand ");
 		if (thousandths == 2) printf("two thousand ");	
@@ -70,7 +62,7 @@ main()
 	}
 	
 	if (tens != 0){
-		if (tens == 1) printf("ten ");
+		if (tens == 1 && ones == 0) printf("ten ");
 		if (tens == 2) printf("twenty ");	
 		if (tens == 3) printf("thirty ");
 		if (tens == 4) printf("fourty ");
@@ -80,8 +72,21 @@ main()
 		if (tens == 8) printf("eighty ");
 		if (tens == 9) printf("ninety ");
 	}
-	
-	if (ones != 0){
+
+	if (tens != 0 && ones != 0){
+		if (tens == 1 && ones == 1) printf("eleven ");
+		if (tens == 1 && ones == 2) printf("twelve ");	
+		if (tens == 1 && ones == 3) printf("thirteen ");
+		if (tens == 1 && ones == 4) printf("fourteen ");
+		if (tens == 1 && ones == 5) printf("fifteen ");
+		if (tens == 1 && ones == 6) printf("sixteen ");
+		if (tens == 1 && ones == 7) printf("seventeen ");
+		if (tens == 1 && ones == 8) printf("eighteen ");
+		if (tens == 1 && ones == 9) printf("nineteen ");
+		}
+
+		
+	if (ones != 0 && tens != 1){
 		if (ones == 1) printf("one ");
 		if (ones == 2) printf("two ");	
 		if (ones == 3) printf("three ");
@@ -92,4 +97,5 @@ main()
 		if (ones == 8) printf("eight ");
 		if (ones == 9) printf("nine ");
 	}
+
 }
