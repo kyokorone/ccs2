@@ -34,7 +34,7 @@ void add(int num1,int num2){
 void subtract(int num1,int num2){
 	if(num1 > num2)
 		printf("%d - %d = %d", num1, num2, num1-num2);
-	if(num2 > num1)
+	else
 		printf("%d - %d = %d", num2, num1, num2-num1);
 }
 
@@ -45,6 +45,6 @@ void multiply(int num1,int num2){
 void divide(int num1,int num2){
 	if(num1 > num2)
 		printf("%d / %d = %d", num1, num2, num1/num2);
-	if(num2 > num1)
+	else
 		printf("%d / %d = %d", num2, num1, num2/num1);
 }
